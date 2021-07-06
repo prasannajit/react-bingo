@@ -1,11 +1,11 @@
 import React from 'react';
 import { isMobile } from 'react-device-detect';
-import { getTextMap } from '../../helpers';
+import { initializeCellData } from '../../helpers';
 import { COLUMN_COUNT, ROW_COUNT } from '../../constants';
 
 const Bingo = () => {
-    const textMap = getTextMap(ROW_COUNT, COLUMN_COUNT, isMobile);
-    console.log(textMap);
+    const cellData = initializeCellData(ROW_COUNT, COLUMN_COUNT, isMobile);
+    console.log(cellData);
     return (
         <div>
             Bingo
