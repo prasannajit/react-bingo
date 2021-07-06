@@ -1,10 +1,10 @@
 import React from 'react';
-
+import Bingo from '../Bingo';
 const App = () => {
     return (
-        <div>
-            Hello Bingo APP
-        </div>
+        <>
+            <Bingo/>
+        </>
     )
 };
 
