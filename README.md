@@ -9,3 +9,9 @@ The application is created using create-react-app and follows a similar structur
 ### Run the application
 
 npm start
+
+### TODO List
+
+ - Enhance responsiveness of the application 
+ - Make animation smoother
+ - Fix animation issue on mobile devices
