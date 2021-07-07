@@ -1,3 +1,3 @@
-import renderCells from "./renderCells";
+import renderCells from './renderCells';
 
 export { renderCells };

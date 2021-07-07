@@ -5,8 +5,8 @@
  * @param  {} colCount - column count
  */
 const findMiddleCell = (rowCount, colCount) => {
-    let middleCell = (rowCount - 1) / 2;
-    return { row: middleCell, col: middleCell };
+  const middleCell = (rowCount - 1) / 2;
+  return { row: middleCell, col: middleCell };
 };
 
 export default findMiddleCell;

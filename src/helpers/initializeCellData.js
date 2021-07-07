@@ -1,6 +1,6 @@
-import getTextMap from "./getTextMap";
-import findMiddleCell from "./findMiddleCell";
-import { MIDDLE_CELL_TEXT_DESKTOP, MIDDLE_CELL_TEXT_MOBILE } from '../constants/';
+import getTextMap from './getTextMap';
+import findMiddleCell from './findMiddleCell';
+import { MIDDLE_CELL_TEXT_DESKTOP /** MIDDLE_CELL_TEXT_MOBILE */ } from '../constants';
 
 /**
  * Initialize cell data based on row count and column count.
@@ -10,27 +10,27 @@ import { MIDDLE_CELL_TEXT_DESKTOP, MIDDLE_CELL_TEXT_MOBILE } from '../constants/
  * @param  {} isMobile
  */
 const initializeCellData = (rowCount, colCount, isMobile) => {
-    let cellData = [];
-    const textMap = getTextMap(rowCount, colCount, false);
-    for (let i = 0; i < rowCount; i++) {
-        for (let j = 0; j < colCount; j++) {
-            cellData.push({
-                coord: { row: i, col: j }, // Coordinate of the cell (row number and column number)
-                isSelected: false, // is the cell selected
-                isPartOfBingo: false, // is the cell part of any bingo
-                text: textMap.get(rowCount * i + j) // the text to be displayed in the cell
-            });
-        }
+  const cellData = [];
+  const textMap = getTextMap(rowCount, colCount, false);
+  for (let i = 0; i < rowCount; i += 1) {
+    for (let j = 0; j < colCount; j += 1) {
+      cellData.push({
+        coord: { row: i, col: j }, // Coordinate of the cell (row number and column number)
+        isSelected: false, // is the cell selected
+        isPartOfBingo: false, // is the cell part of any bingo
+        text: textMap.get(rowCount * i + j), // the text to be displayed in the cell
+      });
     }
-    // Middle cell is always selected
-    let middleCell = findMiddleCell(rowCount, colCount);
-    let midCell = cellData.find((cell) => {
-        return (cell.coord.row === middleCell.row && cell.coord.col === middleCell.col);
-    });
-    midCell.isSelected = true;
-    midCell.text = false ? MIDDLE_CELL_TEXT_MOBILE : MIDDLE_CELL_TEXT_DESKTOP;
-    //midCell.text = MIDDLE_CELL_TEXT_DESKTOP;
-    return cellData;
+  }
+  // Middle cell is always selected
+  const middleCell = findMiddleCell(rowCount, colCount);
+  const midCell = cellData.find((cell) => {
+    return cell.coord.row === middleCell.row && cell.coord.col === middleCell.col;
+  });
+  midCell.isSelected = true;
+  // midCell.text = isMobile ? MIDDLE_CELL_TEXT_MOBILE : MIDDLE_CELL_TEXT_DESKTOP;
+  midCell.text = MIDDLE_CELL_TEXT_DESKTOP;
+  return cellData;
 };
 
 export default initializeCellData;
