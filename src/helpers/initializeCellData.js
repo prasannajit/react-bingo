@@ -16,8 +16,8 @@ const initializeCellData = (rowCount, colCount, isMobile) => {
         for (let j = 0; j < colCount; j++) {
             cellData.push({
                 coord: { row: i, col: j }, // Coordinate of the cell (row number and column number)
-                selected: false, // is the cell selected
-                partOfBingo: false, // is the cell part of any bingo
+                isSelected: false, // is the cell selected
+                isPartOfBingo: false, // is the cell part of any bingo
                 text: textMap.get(rowCount * i + j) // the text to be displayed in the cell
             });
         }
@@ -27,7 +27,7 @@ const initializeCellData = (rowCount, colCount, isMobile) => {
     let midCell = cellData.find((cell) => {
         return (cell.coord.row === middleCell.row && cell.coord.col === middleCell.col);
     });
-    midCell.selected = true;
+    midCell.isSelected = true;
     midCell.text = false ? MIDDLE_CELL_TEXT_MOBILE : MIDDLE_CELL_TEXT_DESKTOP;
     //midCell.text = MIDDLE_CELL_TEXT_DESKTOP;
     return cellData;

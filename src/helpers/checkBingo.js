@@ -6,7 +6,7 @@
  */
 const checkRowBingo = (cellData, rowCount) => {
     /** Find all the cells that are selected */
-    let selectedCells = cellData.filter(cell => cell.selected);
+    let selectedCells = cellData.filter(cell => cell.isSelected);
     let result = [];
     if (selectedCells.length < rowCount) {
         return result;
@@ -29,7 +29,7 @@ const checkRowBingo = (cellData, rowCount) => {
  */
 const checkColBingo = (cellData, colCount) => {
     /** Find all the cells that are selected */
-    let selectedCells = cellData.filter(cell => cell.selected);
+    let selectedCells = cellData.filter(cell => cell.isSelected);
     let result = [];
     if (selectedCells.length < colCount) {
         return result;
@@ -65,7 +65,7 @@ const checkDiagonalBingo = (cellData, rowCount, colCount) => {
         }
     };
     /** Find all the cells that are selected */
-    let selectedCells = cellData.filter(cell => cell.selected);
+    let selectedCells = cellData.filter(cell => cell.isSelected);
     let result = [];
     if (selectedCells.length < colCount) {
         return result;

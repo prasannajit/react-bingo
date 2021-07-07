@@ -1,7 +1,8 @@
 import { DESKTOP_TEXT, MOBILE_TEXT } from '../constants';
 
 /**
- * Get text map
+ * Get text map which is randomly selected
+ * from an array
  * @param  {} rowCount
  * @param  {} colCount
  * @param  {} isMobile

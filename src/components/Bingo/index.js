@@ -5,10 +5,16 @@ import { renderCells } from './helpers';
 import { initializeCellData, checkBingo } from '../../helpers';
 import { COLUMN_COUNT, ROW_COUNT } from '../../constants';
 
+/**
+ * Return a React element that shows a table
+ */
 const Bingo = () => {
     const [cellState, setCellState] = useState(initializeCellData(ROW_COUNT, COLUMN_COUNT, isMobile));
     const [bingoState, setBingoState] = useState({ bingoCells: [], isBingo: false });
-
+    /**
+     * Shows a image and performs some animation
+     * using Jquery
+     */
     const animate=()=>{
         let height = window.$(window).height();
         let width = window.$(window).width();
@@ -16,18 +22,28 @@ const Bingo = () => {
         window.$("#bingo-img").effect( "size", { to: {width: width, height: height} }, 1000 );
         window.$("#bingo-img").toggle('explode');
     };
+    
+    /**
+     * Click handler on card component, received inside the parent.
+     * This method takes care of re-rendering the entire page
+     * 1) When a cell is selected it checks if Bingo has happened
+     * 2) When a cell is deselected it checks to remove bingo cells
+     * 3) Triggers an animation when Bingo happens
+     * @param  {} row
+     * @param  {} col
+     */
     const handleClickParent = (row, col) => {
         /**Create a copy of state to modify and finally update */
         let updatedCellState = cellState.slice(0);
-        /** Update the selected state of the clicked cell */
+        /** Update the isSelected state of the clicked cell */
         let selectedCell = updatedCellState.find((cell) => {
             if (cell.coord.row === row && cell.coord.col === col) {
                 return true;
             }
             return false;
         });
-        /** toggle selected state */
-        selectedCell.selected = !selectedCell.selected;
+        /** toggle isSelected state */
+        selectedCell.isSelected = !selectedCell.isSelected;
         /** Update cell state and trigger a re-render */
         setCellState(updatedCellState);
 
@@ -35,7 +51,7 @@ const Bingo = () => {
          * We have to check for bingos when a cell is selected, and when a cell is un-selected,
          * we have to update the bing state and re-render the cells.
          */
-        if (!selectedCell.selected) {
+        if (!selectedCell.isSelected) {
             /** Reset all the cell's bingo state, based on latest bing cells data
              * update the bingo data of all the cells
              */
@@ -43,9 +59,9 @@ const Bingo = () => {
             let copyOfCellState = updatedCellState.slice(0);
             for (let i = 0; i < copyOfCellState.length; i++) {
                 let cell = copyOfCellState[i];
-                if (cell.partOfBingo) {
+                if (cell.isPartOfBingo) {
                     /** reset bing property of a cell */
-                    cell.partOfBingo = false;
+                    cell.isPartOfBingo = false;
                 }
             }
             const latestBingoCells = checkBingo(updatedCellState, ROW_COUNT, COLUMN_COUNT);
@@ -57,7 +73,7 @@ const Bingo = () => {
                     let cellInCellState = copyOfCellState.find((cell) => {
                         return (bingoCell.coord.row === cell.coord.row && bingoCell.coord.col === cell.coord.col)
                     });
-                    cellInCellState.partOfBingo = true;
+                    cellInCellState.isPartOfBingo = true;
                 }
             }
             setBingoState({ bingoCells: latestBingoCells, isBingo: false });
@@ -86,7 +102,7 @@ const Bingo = () => {
                         let bingoCellFromCellState = copyOfCellState.find((cell) => {
                             return (cell.coord.row === cellFromBingo.coord.row && cell.coord.col === cellFromBingo.coord.col)
                         });
-                        bingoCellFromCellState.partOfBingo = true;
+                        bingoCellFromCellState.isPartOfBingo = true;
                     }
                 }
                 /** Update cell state with updated bingo property */
