@@ -8,8 +8,8 @@ The application is created using create-react-app and follows a similar structur
 
 ### Run the application
 
-npm ci
-npm start
+- npm ci
+- npm start
 
 ### TODO List
 
