@@ -5,8 +5,8 @@ import './App.css';
 const App = () => {
     return (
         <div className="app-container">
+            <h1>Play Amazing BINGO</h1>
             <div className="container">
-                <h1>Play Amazing BINGO</h1>
                 <Bingo />
             </div>
         </div>

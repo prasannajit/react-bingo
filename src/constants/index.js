@@ -19,3 +19,8 @@ export const MOBILE_TEXT = [
 
 export const MIDDLE_CELL_TEXT_DESKTOP = "Motivation for Today";
 export const MIDDLE_CELL_TEXT_MOBILE = "Qualities";
+
+export const BACKGROUND_COLOR_GREEN='green';
+export const BACKGROUND_COLOR_TEAL='teal';
+export const BACKGROUND_COLOR_YELLOW='yellow';
+export const BACKGROUND_COLOR_GREY='#cccccc';

@@ -10,9 +10,48 @@
 .app-container{
   padding: 0 4px;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 870px) {
     .container {
      position: absolute;
-     top: 50%;
+     top: 30%;
+     width: 100%;
     }
+    h1{
+      position: absolute;
+      top: 10%;
+      left: 40%;
+    }
+}
+@media only screen and (min-width: 872px) {
+  .container {
+    width: 95%;
   }
+}
+@media only screen and (min-width: 1000px) {
+  .container {
+    width: 80%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .container {
+    width: 80%;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .container {
+    width: 60%;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .container {
+    width: 50%;
+  }
+}
+@media only screen and (min-width: 1920px) {
+  .container {
+    width: 30%;
+  }
+}
+h1{
+  text-align: center;
+}

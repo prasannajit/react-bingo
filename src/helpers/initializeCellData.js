@@ -28,8 +28,8 @@ const initializeCellData = (rowCount, colCount, isMobile) => {
         return (cell.coord.row === middleCell.row && cell.coord.col === middleCell.col);
     });
     midCell.selected = true;
-    // midCell.text = isMobile ? MIDDLE_CELL_TEXT_MOBILE : MIDDLE_CELL_TEXT_DESKTOP;
-    midCell.text = MIDDLE_CELL_TEXT_DESKTOP;
+    midCell.text = false ? MIDDLE_CELL_TEXT_MOBILE : MIDDLE_CELL_TEXT_DESKTOP;
+    //midCell.text = MIDDLE_CELL_TEXT_DESKTOP;
     return cellData;
 };
 

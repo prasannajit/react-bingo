@@ -9,6 +9,13 @@ const Bingo = () => {
     const [cellState, setCellState] = useState(initializeCellData(ROW_COUNT, COLUMN_COUNT, isMobile));
     const [bingoState, setBingoState] = useState({ bingoCells: [], isBingo: false });
 
+    const animate=()=>{
+        let height = window.$(window).height();
+        let width = window.$(window).width();
+        window.$("#bingo-img").show(2000);
+        window.$("#bingo-img").effect( "size", { to: {width: width, height: height} }, 1000 );
+        window.$("#bingo-img").toggle('explode');
+    };
     const handleClickParent = (row, col) => {
         /**Create a copy of state to modify and finally update */
         let updatedCellState = cellState.slice(0);
@@ -84,6 +91,7 @@ const Bingo = () => {
                 }
                 /** Update cell state with updated bingo property */
                 setCellState(copyOfCellState);
+                animate();
             }
         }
     }
