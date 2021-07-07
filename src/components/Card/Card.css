@@ -1,8 +1,31 @@
-.card{
-    border: 1px solid black;
-    border-radius: 10px;
-    text-align: center;
-    height: 150px;
-    margin: 4px;
-    width: 150px;
+.card {
+  border: 1px solid black;
+  border-radius: 10px;
+  text-align: center;
+  height: 150px;
+  margin: 4px;
+  width: 150px;
+}
+@media only screen and (max-width: 320px) {
+  .card {
+    height: 50px;
+    width: 50px;
+    overflow-wrap: break-word;
+    padding: 0px;
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 425px) {
+  .card {
+    font-size: 2.2rem;
+    padding: 20px;
+    overflow-wrap: break-word;
+  }
+}
+@media only screen and (min-width: 426px) and (max-width: 768px) {
+  .card {
+    height: 136px;
+    width: 136px;
+    overflow-wrap: break-word;
+    padding: 3px;
+  }
 }

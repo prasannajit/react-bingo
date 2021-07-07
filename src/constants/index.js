@@ -31,15 +31,15 @@ export const DESKTOP_TEXT = [
 
 export const MOBILE_TEXT = [
   'Reliable',
-  'Constructive',
-  'Influential',
-  'Opinionated',
+  'Calm',
+  'Fearless',
+  'Trusted',
   'Honest',
-  'Instrumental',
+  'Caring',
   'Inspiring',
   'Motivating',
   'Leader',
-  'Accountable',
+  'Brave',
   'Pragmatic',
   'Decisive',
   'Superior',
@@ -52,7 +52,7 @@ export const MOBILE_TEXT = [
   'Competent',
   'Tenacious',
   'Focused',
-  'Committed',
+  'Zealous',
   'Persistent',
   'Diligent',
 ];
@@ -64,3 +64,5 @@ export const BACKGROUND_COLOR_GREEN = 'green';
 export const BACKGROUND_COLOR_TEAL = 'teal';
 export const BACKGROUND_COLOR_YELLOW = 'yellow';
 export const BACKGROUND_COLOR_GREY = '#cccccc';
+
+export const MOBILE_DEVICE_MAX_WIDTH = 425;

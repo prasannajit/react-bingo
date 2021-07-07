@@ -1,26 +1,31 @@
 import React, { useState } from 'react';
-import { isMobile } from 'react-device-detect';
+// import { isMobileOnly } from 'react-device-detect';
 import MD5 from 'crypto-js/md5';
 import renderCells from './helpers/renderCells';
 import initializeCellData from '../../helpers/initializeCellData';
 import checkBingo from '../../helpers/checkBingo';
-import { COLUMN_COUNT, ROW_COUNT } from '../../constants';
+import getDeviceWidthAndHeight from '../../helpers/getDeviceWidthAndHeight';
+import { COLUMN_COUNT, ROW_COUNT, MOBILE_DEVICE_MAX_WIDTH } from '../../constants';
 
 /**
  * Return a React element that shows a table
  */
 const Bingo = () => {
-  const [cellState, setCellState] = useState(initializeCellData(ROW_COUNT, COLUMN_COUNT, isMobile));
+  const { width } = getDeviceWidthAndHeight();
+  let isMobileOnly = false;
+  if (width <= MOBILE_DEVICE_MAX_WIDTH) {
+    isMobileOnly = true;
+  }
+  const [cellState, setCellState] = useState(initializeCellData(ROW_COUNT, COLUMN_COUNT, isMobileOnly));
   const [bingoState, setBingoState] = useState({ bingoCells: [], isBingo: false });
   /**
    * Shows a image and performs some animation
    * using Jquery
    */
   const animate = () => {
-    const height = window.$(window).height();
-    const width = window.$(window).width();
+    const { width: viewPortWidth, height: viewPortHeight } = getDeviceWidthAndHeight();
     window.$('#bingo-img').show(2000);
-    window.$('#bingo-img').effect('size', { to: { width, height } }, 1000);
+    window.$('#bingo-img').effect('size', { to: { width: viewPortWidth, height: viewPortHeight } }, 1000);
     window.$('#bingo-img').toggle('explode');
   };
 

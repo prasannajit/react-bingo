@@ -14,8 +14,8 @@
     "react-scripts": "4.0.3"
   },
   "devDependencies": {
-    "eslint": "^7.30.0",
     "babel-eslint": "^10.1.0",
+    "eslint": "^7.30.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-sonar": "0.0.7",
@@ -25,6 +25,7 @@
     "eslint-plugin-lodash": "^7.2.0",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-security": "^1.4.0",
     "eslint-plugin-smells": "^1.0.1",
     "prettier": "^2.3.2",

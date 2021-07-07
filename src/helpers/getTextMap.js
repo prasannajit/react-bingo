@@ -5,9 +5,9 @@ import { DESKTOP_TEXT, MOBILE_TEXT } from '../constants';
  * from an array
  * @param  {} rowCount
  * @param  {} colCount
- * @param  {} isMobile
+ * @param  {} isMobileOnly
  */
-const getTextMap = (rowCount, colCount, isMobile) => {
+const getTextMap = (rowCount, colCount, isMobileOnly) => {
   const textMap = new Map();
   const alreadyGeneratedIndex = [];
   for (let i = 0; i < rowCount * colCount; i += 1) {
@@ -20,7 +20,7 @@ const getTextMap = (rowCount, colCount, isMobile) => {
         break;
       }
     }
-    textMap.set(i, isMobile ? MOBILE_TEXT[random] : DESKTOP_TEXT[random]);
+    textMap.set(i, isMobileOnly ? MOBILE_TEXT[random] : DESKTOP_TEXT[random]);
   }
   return textMap;
 };

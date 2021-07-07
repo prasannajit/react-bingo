@@ -1,17 +1,17 @@
 import getTextMap from './getTextMap';
 import findMiddleCell from './findMiddleCell';
-import { MIDDLE_CELL_TEXT_DESKTOP /** MIDDLE_CELL_TEXT_MOBILE */ } from '../constants';
+import { MIDDLE_CELL_TEXT_DESKTOP, MIDDLE_CELL_TEXT_MOBILE } from '../constants';
 
 /**
  * Initialize cell data based on row count and column count.
  * It initialize all the cell data with coordinates and text details.
  * @param  {} rowCount
  * @param  {} colCount
- * @param  {} isMobile
+ * @param  {} isMobileOnly
  */
-const initializeCellData = (rowCount, colCount, isMobile) => {
+const initializeCellData = (rowCount, colCount, isMobileOnly) => {
   const cellData = [];
-  const textMap = getTextMap(rowCount, colCount, false);
+  const textMap = getTextMap(rowCount, colCount, isMobileOnly);
   for (let i = 0; i < rowCount; i += 1) {
     for (let j = 0; j < colCount; j += 1) {
       cellData.push({
@@ -28,8 +28,7 @@ const initializeCellData = (rowCount, colCount, isMobile) => {
     return cell.coord.row === middleCell.row && cell.coord.col === middleCell.col;
   });
   midCell.isSelected = true;
-  // midCell.text = isMobile ? MIDDLE_CELL_TEXT_MOBILE : MIDDLE_CELL_TEXT_DESKTOP;
-  midCell.text = MIDDLE_CELL_TEXT_DESKTOP;
+  midCell.text = isMobileOnly ? MIDDLE_CELL_TEXT_MOBILE : MIDDLE_CELL_TEXT_DESKTOP;
   return cellData;
 };
 

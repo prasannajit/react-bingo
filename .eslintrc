@@ -8,6 +8,7 @@
     "plugin:security/recommended",
     "plugin:promise/recommended",
     "plugin:prettier/recommended",
+    "plugin:react/recommended",
     "sonar"
   ],
   "rules": {
@@ -17,5 +18,8 @@
     "promise/no-callback-in-promise": 0,
     "prefer-rest-params": 0,
     "no-param-reassign": 0
-  }
+  },
+  "globals": {
+    "window": true
+}
 }
